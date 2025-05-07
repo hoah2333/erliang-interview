@@ -2,22 +2,56 @@
 
 @theme {
   --font-sans: "Inter", sans-serif;
+  --font-tisa-pro: "tisaPro", sans-serif;
 
   --breakpoint-s: 26rem;
   --breakpoint-m: 48rem;
   --breakpoint-l: 64rem;
 
+  --text-xxl: 1.5rem;
+  --text-xxl--line-height: 2rem;
   --text-h0: 4rem;
   --text-h0--line-height: 5rem;
+  --text-h1: 3rem;
+  --text-h1--line-height: 3.75rem;
   --text-h15: 2.5rem;
   --text-h15--line-height: 3rem;
+  --text-h2: 2rem;
+  --text-h2--line-height: 2.5rem;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 2rem;
+  --text-h35: 1.375rem;
+  --text-h35--line-height: 1.875rem;
+  --text-h4: 1.125rem;
+  --text-h4--line-height: 1.5rem;
+  --text-h5: 1rem;
+  --text-h5--line-height: 1.5rem;
+  --text-h6: .875rem;
+  --text-h6--line-height: 1.25rem;
+  --text-p0: 1.25rem;
+  --text-p0--line-height: 1.75rem;
+  --text-p1: 1rem;
+  --text-p1--line-height: 1.5rem;
+  --text-caption: .875rem;
+  --text-caption--line-height: 1.375rem;
+  --text-r0: 1.75rem;
+  --text-r0--line-height: 2.625rem;
+  --text-r1: 1.5rem;
+  --text-r1--line-height: 2.25rem;
+  --text-r2: 1.125rem;
+  --text-r2--line-height: 1.625rem;
+  --text-legal: .75rem;
+  --text-legal--line-height: 1.125rem;
 
-  --color-dark-grey: hsl(var(--neutral-dark-grey) / 1);
   --color-green: hsl(var(--brand-green) / 1);
   --color-midnight: hsl(var(--brand-midnight) / 1);
+  --color-blue: hsl(var(--brand-blue) / 1);
+  --color-dark-grey: hsl(var(--neutral-dark-grey) / 1);
+  --color-green-2: hsl(var(--extended-green-2) / 1);
   --color-blue-7: hsl(var(--extended-blue-7) / 1);
   --color-background-yellow: hsl(var(--extended-summer-yellow-7) / 1);
   --color-background-purple: hsl(var(--extended-orchid-violet-7) / 1);
+  --color-summer-yellow: hsl(var(--extended-summer-yellow-4) / 1);
 
   --brand-green: 148 74% 53%;
   --brand-midnight: 202 92% 15%;

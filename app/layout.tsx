@@ -1,5 +1,7 @@
 import "./global.css";
 
+import localFont from "next/font/local";
+
 import { Inter } from "next/font/google";
 
 import type { Metadata, Viewport } from "next";
@@ -30,10 +32,21 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export const viewport: Viewport = { width: "device-width", initialScale: 1.0 };
 
 const inter = Inter({ subsets: ["latin"] });
+const tisaPro = localFont({
+  src: [
+    {path: "../public/fonts/Tisa-Sans-Pro-Regular.ttf", weight: "400"},
+    {path: "../public/fonts/Tisa-Sans-Pro-Italic.ttf", weight: "400", style: "italic"},
+    {path: "../public/fonts/Tisa-Sans-Pro-Bold.ttf", weight: "700"},
+    {path: "../public/fonts/Tisa-Sans-Pro-Bold-Italic.ttf", weight: "700", style: "italic"},
+  ],
+  display: "swap",
+  preload: true,
+  fallback: ["Consolas", "monospace"],
+})
 
 const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
   <html>
-    <body className={inter.className}>{children}</body>
+    <body className={tisaPro.className + " " + inter.className}>{children}</body>
   </html>
 );
 
