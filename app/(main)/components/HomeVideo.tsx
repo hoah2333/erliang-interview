@@ -8,7 +8,7 @@ import { PlayIcon, SoundIcon } from "/Icons";
 import type { JSX } from "react";
 
 export const HomeVideo = (): JSX.Element => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleClick = (): void => {
@@ -68,5 +68,3 @@ export const HomeVideo = (): JSX.Element => {
     </div>
   );
 };
-
-
