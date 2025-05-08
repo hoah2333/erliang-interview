@@ -3,6 +3,7 @@ import "./global.css";
 import localFont from "next/font/local";
 
 import { Inter } from "next/font/google";
+import { Navbar } from "./components/Navbar";
 
 import type { Metadata, Viewport } from "next";
 import type { JSX, ReactNode } from "react";
@@ -34,19 +35,22 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1.0 };
 const inter = Inter({ subsets: ["latin"] });
 const tisaPro = localFont({
   src: [
-    {path: "../public/fonts/Tisa-Sans-Pro-Regular.ttf", weight: "400"},
-    {path: "../public/fonts/Tisa-Sans-Pro-Italic.ttf", weight: "400", style: "italic"},
-    {path: "../public/fonts/Tisa-Sans-Pro-Bold.ttf", weight: "700"},
-    {path: "../public/fonts/Tisa-Sans-Pro-Bold-Italic.ttf", weight: "700", style: "italic"},
+    { path: "../public/fonts/Tisa-Sans-Pro-Regular.ttf", weight: "400" },
+    { path: "../public/fonts/Tisa-Sans-Pro-Italic.ttf", weight: "400", style: "italic" },
+    { path: "../public/fonts/Tisa-Sans-Pro-Bold.ttf", weight: "700" },
+    { path: "../public/fonts/Tisa-Sans-Pro-Bold-Italic.ttf", weight: "700", style: "italic" },
   ],
   display: "swap",
   preload: true,
   fallback: ["Consolas", "monospace"],
-})
+});
 
 const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
   <html>
-    <body className={tisaPro.className + " " + inter.className}>{children}</body>
+    <body className={inter.className}>
+      <Navbar />
+      {children}
+    </body>
   </html>
 );
 

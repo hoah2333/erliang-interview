@@ -3,7 +3,7 @@ import clsx from "clsx";
 import type { JSX } from "react";
 
 export const PlayIcon = ({ className }: { className?: string }): JSX.Element => (
-  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+  <svg viewBox="0 0 24 24" fill="none" fillRule="evenodd" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
       d="M12 0C5.37333 0 0 5.37333 0 12C0 18.6267 5.37333 24 12 24C18.6267 24 24 18.6267 24 12C24 5.37333 18.6267 0 12 0ZM17.5633 12.5767L13.6667 14.8267L9.77 17.0767C9.32667 17.3333 8.77 17.0133 8.77 16.5V12V7.5C8.77 6.98667 9.32667 6.66667 9.77 6.92333L13.6667 9.17333L17.5633 11.4233C18.0067 11.68 18.0067 12.32 17.5633 12.5767Z"
       fill="currentColor"
@@ -12,10 +12,10 @@ export const PlayIcon = ({ className }: { className?: string }): JSX.Element => 
 );
 
 export const SoundIcon = ({ className }: { className?: string }): JSX.Element => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" fillRule="evenodd" className={className}>
+  <svg viewBox="0 0 24 24" fill="none" fillRule="evenodd" xmlns="http://www.w3.org/2000/svg" className={className}>
     <path
-      fill="currentColor"
       d="M14.381 2.516a.25.25 0 0 1 .139.224v20a.25.25 0 0 1-.402.198L6.692 17.24H3.488c-1.208 0-2.179-.986-2.179-2.19v-4.622c0-1.204.971-2.19 2.179-2.19h3.204l7.426-5.698a.25.25 0 0 1 .263-.026zm-1.269 2.572L7.237 9.596a.25.25 0 0 1-.152.052H3.488c-.421 0-.771.346-.771.782v4.622c0 .436.35.782.771.782h3.597a.25.25 0 0 1 .152.052l5.875 4.508V5.088zm5.703.605a.25.25 0 0 1 .352-.034c1.944 1.605 3.524 4.291 3.524 7.08s-1.586 5.477-3.524 7.08a.25.25 0 0 1-.352-.033l-.579-.7a.25.25 0 0 1 .033-.352c1.684-1.393 3.014-3.712 3.014-5.995s-1.324-4.601-3.013-5.994a.25.25 0 0 1-.034-.352l.578-.7zm-2.21 2.719a.25.25 0 0 1 .349-.055c1.335.971 2.469 2.448 2.469 4.383s-1.133 3.412-2.469 4.383a.25.25 0 0 1-.349-.055l-.534-.735a.25.25 0 0 1 .055-.349c1.117-.811 1.889-1.914 1.889-3.244s-.773-2.432-1.889-3.244a.25.25 0 0 1-.055-.349l.534-.734z"
+      fill="currentColor"
     />
   </svg>
 );
@@ -56,7 +56,7 @@ export const DownloadIcon = ({
   className?: string;
 }): JSX.Element => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-    <path d="M21 20.5H3V22H21V20.5Z" fill="currentColor"></path>
+    <path d="M21 20.5H3V22H21V20.5Z" fill="currentColor" />
     <path
       d="M18.19 12.53L17.13 11.47L12.71 15.89V3H11.3V15.9L6.87 11.47L5.81 12.53L12 18.72L18.19 12.53Z"
       fill="currentColor"
@@ -64,7 +64,7 @@ export const DownloadIcon = ({
   </svg>
 );
 
-export const SeedlingIcon = ({ className }: { className?: string }) => (
+export const SeedlingIcon = ({ className }: { className?: string }): JSX.Element => (
   <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
     <g clipPath="url(#clip0_4009_300)">
       <path
@@ -74,8 +74,184 @@ export const SeedlingIcon = ({ className }: { className?: string }) => (
     </g>
     <defs>
       <clipPath id="clip0_4009_300">
-        <rect width="24" height="24" fill="currentColor"></rect>
+        <rect width="24" height="24" fill="currentColor" />
       </clipPath>
     </defs>
+  </svg>
+);
+
+export const BlinkistIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 134 26"
+    enableBackground="new 0 0 134 26"
+    color="#03314B"
+    className={className}
+  >
+    <path
+      fill="#2CE080"
+      d="M19.8,0l-6,6l-6-6C3.1,2.2,0,6.9,0,12.3C0,19.9,6.1,26,13.7,26 c7.6,0,13.8-6.1,13.8-13.7C27.5,6.9,24.3,2.2,19.8,0z"
+    />
+    <path
+      fill="#03314B"
+      d="M17.4,9.6L13.7,6l-3.6,3.6c-2,2-2,5.3,0,7.3c2,2,5.3,2,7.3,0 C19.4,14.9,19.4,11.6,17.4,9.6z"
+    />
+    <path
+      fill="currentColor"
+      d="M44.1,16.7c0-1.1-0.8-1.7-1.9-1.7h-3.8v3.3h3.8 C43.4,18.3,44.1,17.8,44.1,16.7z M38.4,7.7V11h1.8c1.2,0,1.9-0.7,1.9-1.7c0-1-0.7-1.7-1.9-1.7H38.4z M49,16.9c0,3.3-2.8,5.7-6.5,5.7 h-8.9v-19h6.9c3.7,0,6.5,2.2,6.5,5.6c0,1.3-0.4,2.4-1.2,3.2C47.8,13.1,49,14.6,49,16.9z"
+    />
+    <path fill="currentColor" d="M51.4,22.5h5V0.9h-5V22.5z" />
+    <path
+      fill="currentColor"
+      d="M59.6,22.5h5V8.1h-5V22.5z M65.2,3c0,1.6-1.4,2.9-3.1,2.9 c-1.7,0-3-1.3-3-2.9c0-1.7,1.4-2.9,3-2.9C63.8,0.1,65.2,1.3,65.2,3z"
+    />
+    <path
+      fill="currentColor"
+      d="M82,13.6v8.9h-5v-8.2c0-1.3-0.9-2.1-2.1-2.1 c-1.2,0-2.1,0.8-2.1,2.1v8.2h-5V8.1h4.5v1.2c1-0.9,2.4-1.5,4.1-1.5C79.9,7.8,82,10.1,82,13.6z"
+    />
+    <path fill="currentColor" d="M95.3,22.5l-5.2-7.6v7.6h-5V0.9h5v13l4.5-5.8h5.8l-5,6.4l5.3,8 H95.3z" />
+    <path
+      fill="currentColor"
+      d="M102.4,22.5h5V8.1h-5V22.5z M107.9,3c0,1.6-1.4,2.9-3.1,2.9 c-1.7,0-3-1.3-3-2.9c0-1.7,1.4-2.9,3-2.9C106.5,0.1,107.9,1.3,107.9,3z"
+    />
+    <path
+      fill="currentColor"
+      d="M121.3,9.9l-2.3,3c-1-0.8-2-1.2-3.1-1.2c-0.6,0-1,0.1-1,0.5 c0,0.4,0.3,0.5,1,0.8l1.4,0.6c2.6,1,4.2,2.1,4.2,4.5c0,3-2.5,4.8-6,4.8c-2.6,0-4.9-1-6.2-2.8l2.3-2.9c1.2,1.2,2.6,1.8,4,1.8 c0.7,0,1.3-0.1,1.3-0.6c0-0.3-0.3-0.5-0.8-0.7l-1.6-0.7c-2.6-1.1-4.2-2.2-4.2-4.6c0-2.9,2.3-4.6,5.6-4.6 C118,7.7,119.9,8.4,121.3,9.9z"
+    />
+    <path
+      fill="currentColor"
+      d="M134,18.4v4.2c-0.8,0.2-1.8,0.3-2.9,0.3c-4,0-6.4-1.9-6.4-5.9v-4.8 h-2.2V8.1h2.2V4.6h5v3.5h3.9v4.2h-3.9v4.3c0,1.4,0.7,1.9,2.5,1.9C132.6,18.4,133.2,18.4,134,18.4z"
+    />
+  </svg>
+);
+
+export const BlinkistSmallIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg viewBox="0 0 98 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <mask
+      id="mask0_1993_146808"
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="26"
+      height="24"
+      style={{ maskType: "luminance" }}
+    >
+      <path fillRule="evenodd" clipRule="evenodd" d="M12.6951 0L0 0V24H25.3902V0H12.6951V0Z" fill="white" />
+    </mask>
+    <g mask="url(#mask0_1993_146808)">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M18.2375 0L12.6898 5.52113L7.14212 0C2.90765 2.04977 -0.0117188 6.37069 -0.0117188 11.3718C-0.0117188 18.3532 5.67488 24.0125 12.6898 24.0125C19.7045 24.0125 25.3911 18.3532 25.3911 11.3718C25.3911 6.37069 22.4717 2.04977 18.2375 0Z"
+        fill="#2CE080"
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M16.0571 8.87302L12.6891 5.52112L9.32083 8.87302C7.46076 10.7242 7.46076 13.7256 9.32083 15.577C11.1811 17.4282 14.197 17.4282 16.0571 15.5768C17.9171 13.7256 17.9171 10.7244 16.0571 8.87302Z"
+        fill="#002F54"
+      />
+    </g>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M36.4892 15.2098C36.4892 14.4507 35.9809 14.081 35.1986 14.081H32.6172V16.3386H35.1986C35.9809 16.3386 36.4892 15.9688 36.4892 15.2098ZM32.6172 9.13773V11.3953H33.8298C34.6315 11.3953 35.1203 10.9477 35.1203 10.2664C35.1203 9.58534 34.6315 9.13773 33.8298 9.13773H32.6172ZM39.7747 15.346C39.7747 17.6035 37.8974 19.1606 35.4138 19.1606H29.3906V6.31571H34.045C36.509 6.31571 38.4058 7.8337 38.4058 10.1108C38.4058 10.9866 38.1125 11.7261 37.6235 12.271C38.9338 12.7965 39.7747 13.8281 39.7747 15.346Z"
+      fill="#002F54"
+    />
+    <path fillRule="evenodd" clipRule="evenodd" d="M41.3965 19.1605H44.76V4.56421H41.3965V19.1605Z" fill="#002F54" />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M46.9512 19.1604H50.3148V9.42957H46.9512V19.1604ZM50.6849 5.98514C50.6849 7.09446 49.7462 7.95073 48.6119 7.95073C47.4778 7.95073 46.5586 7.09446 46.5586 5.98514C46.5586 4.85627 47.4778 4 48.6119 4C49.7462 4 50.6849 4.85627 50.6849 5.98514Z"
+      fill="#002F54"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M62.0668 13.1663V19.1605H58.7031V13.6528C58.7031 12.777 58.0968 12.2126 57.2755 12.2126C56.4541 12.2126 55.8674 12.777 55.8674 13.6528V19.1605H52.5038V9.42949H55.5742V10.2274C56.239 9.60466 57.1778 9.19599 58.3316 9.19599C60.6195 9.19599 62.0668 10.7725 62.0668 13.1663Z"
+      fill="#002F54"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M71.0219 19.1606L67.541 14.0225V19.1606H64.1775V4.56422H67.541V13.3609L70.5916 9.42956H74.4832L71.1197 13.7696L74.718 19.1606H71.0219Z"
+      fill="#002F54"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M75.8125 19.1604H79.176V9.42957H75.8125V19.1604ZM79.5461 5.98514C79.5461 7.09446 78.6074 7.95073 77.4733 7.95073C76.3389 7.95073 75.4199 7.09446 75.4199 5.98514C75.4199 4.85627 76.3389 4 77.4733 4C78.6074 4 79.5461 4.85627 79.5461 5.98514Z"
+      fill="#002F54"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M88.5823 10.6167L86.9984 12.6602C86.353 12.1153 85.6489 11.8233 84.9254 11.8233C84.4951 11.8233 84.241 11.9206 84.241 12.1932C84.241 12.4461 84.4561 12.5435 84.9059 12.7186L85.8835 13.1078C87.6241 13.8083 88.7387 14.5285 88.7387 16.1635C88.7387 18.207 87.0179 19.394 84.6908 19.394C82.9503 19.394 81.4054 18.7323 80.4863 17.5257L82.0508 15.5406C82.8526 16.3191 83.7912 16.7473 84.7494 16.7473C85.2186 16.7473 85.6099 16.6499 85.6099 16.3191C85.6099 16.0856 85.4143 15.9882 85.0428 15.8326L83.9476 15.385C82.1682 14.6648 81.112 13.8668 81.112 12.2515C81.112 10.3054 82.6569 9.17664 84.9059 9.17664C86.3335 9.17664 87.6241 9.62424 88.5823 10.6167Z"
+      fill="#002F54"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M97.1464 16.3579V19.1605C96.5794 19.2968 95.9145 19.394 95.1713 19.394C92.4531 19.394 90.8691 18.0902 90.8691 15.4433V12.2322H89.3828V9.42955H90.8691V7.09424H94.2327V9.42955H96.853V12.2322H94.2327V15.1124C94.2327 16.0271 94.6824 16.397 95.9145 16.397C96.1882 16.397 96.6184 16.3775 97.1464 16.3579Z"
+      fill="#002F54"
+    />
+  </svg>
+);
+
+export const DownArrowIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" direction="down" className={className}>
+    <path
+      fillRule="evenodd"
+      d="M12 14.879L4.061 6.939a1.5 1.5 0 0 0-2.121 2.121l9 9a1.5 1.5 0 0 0 2.121 0l9-9a1.5 1.5 0 0 0-2.121-2.121L12 14.879z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+export const LeftBigArrowIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" fill="currentColor" />
+  </svg>
+);
+
+export const LoginIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M6.75 9.003c.41 0 .75-.34.75-.75V4.5H19v16H7.5v-3.75c0-.41-.34-.75-.75-.75s-.75.34-.75.75v4.5c0 .41.34.75.75.75h13c.41 0 .75-.34.75-.75V3.75c0-.41-.34-.75-.75-.75h-13c-.41 0-.75.34-.75.75v4.503c0 .41.34.75.75.75z"
+      fill="currentColor"
+    />
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M16.52 11.823l-3.81-3.71a.754.754 0 00-1.06.01c-.29.3-.28.77.01 1.06l2.59 2.53H3.75c-.41 0-.75.34-.75.75s.34.75.75.75h10.37l-2.37 2.43c-.29.3-.28.77.01 1.06.3.29.77.28 1.06-.01l3.71-3.81c.29-.3.28-.77-.01-1.06z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+export const StairIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path
+      d="M24 24H0v-7.3h5.72l-.1-5.57h5.64V5.57h5.62V0H24zM1.5 22.51h21V1.5h-4.12v5.57h-5.62v5.57H7.15l.09 5.57H1.5z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+export const SidebarIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path d="M0 3h24v1.8H0V3zM0 11.1h24v1.8H0v-1.8zM0 19.2h24V21H0v-1.8z" fill="currentColor" />
+  </svg>
+);
+
+export const CloseIcon = ({ className }: { className?: string }): JSX.Element => (
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className={className}>
+    <path
+      d="M19.3 20.7l-6.8-6.8-6.8 6.8-1.4-1.4 6.8-6.8-6.8-6.8 1.4-1.4 6.8 6.8 6.8-6.8 1.4 1.4-6.8 6.8 6.8 6.8z"
+      fill="currentColor"
+    />
   </svg>
 );
