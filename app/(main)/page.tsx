@@ -2,17 +2,10 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-import { HomeVideo } from "./components";
+import { BookRecommend, HomeVideo } from "./components";
 import { DownloadIcon, SeedlingIcon, StarIcon } from "/Icons";
 
 import type { JSX, ReactNode } from "react";
-
-const Page = (): JSX.Element => (
-  <div className="m:mt-20 m:gap-20 mt-8 flex flex-col gap-16">
-    <Intro />
-    <GetToKnow />
-  </div>
-);
 
 const Intro = (): JSX.Element => {
   const Animation = ({
@@ -286,6 +279,25 @@ const Button = ({
   >
     {children}
   </Link>
+);
+
+const Page = (): JSX.Element => (
+  <div className="m:mt-20 m:gap-20 mt-8 flex flex-col gap-16">
+    <Intro />
+    <GetToKnow />
+    <section className="m:gap-12 flex flex-col gap-8">
+      <div className="mx-auto max-w-3xl px-4">
+        <h2 className="text-h2 text-midnight m:mb-6 m:text-h0 mb-4 text-center font-bold">
+          A world of knowledge in your pocket
+        </h2>
+        <p className="text-p1 text-dark-grey m:text-p0 text-center">What are you interested in?</p>
+      </div>
+      <BookRecommend />
+      <div className="flex justify-center px-4">
+        <Button href="#">Get started</Button>
+      </div>
+    </section>
+  </div>
 );
 
 export default Page;

@@ -17,6 +17,82 @@ import {
 
 import type { JSX, MouseEventHandler, ReactNode } from "react";
 
+const MainListItem = ({
+  isHovering,
+  children,
+  onMouseEnter,
+}: {
+  isHovering: boolean;
+  children: ReactNode;
+  onMouseEnter: MouseEventHandler<HTMLLIElement>;
+}): JSX.Element => (
+  <li className="flex mb-2 last:mb-0" onMouseEnter={onMouseEnter}>
+    <button
+      className={clsx(
+        "flex items-center h-12 l:h-10 w-full group cursor-pointer hover:text-blue active:text-blue",
+        isHovering ? "text-blue" : "text-midnight",
+      )}
+    >
+      {children}
+    </button>
+  </li>
+);
+
+const SubListItem = ({
+  hidden,
+  listItems,
+}: {
+  hidden: boolean;
+  listItems: { icon: ReactNode; name: string; link: string }[];
+}): JSX.Element => (
+  <ul className={clsx("overflow-y-auto", { hidden })}>
+    {listItems.map(
+      ({ icon, name, link }: { icon: ReactNode; name: string; link: string }, index: number): JSX.Element => (
+        <li key={`item-${index}`} className="flex mb-2 last:mb-0">
+          <Link
+            href={link}
+            className="flex items-center h-12 l:h-10 w-full text-midnight group cursor-pointer hover:text-blue active:text-blue"
+          >
+            <div className="w-full flex items-center font-medium *:w-6 *:h-6 *:mr-2">
+              {icon}
+              {name}
+            </div>
+          </Link>
+        </li>
+      ),
+    )}
+  </ul>
+);
+
+const SidebarItem = ({
+  href = "#",
+  noArrow = false,
+  onClick,
+  children,
+}: {
+  href?: string;
+  noArrow?: boolean;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  children: ReactNode;
+}): JSX.Element => {
+  return (
+    <Link
+      href={href}
+      className={clsx(
+        "flex items-center h-12 l:h-10 w-full text-midnight group cursor-pointer hover:text-blue",
+        "active:text-blue",
+      )}
+      onClick={onClick}
+    >
+      <div className="w-1 h-full rounded flex-shrink-0 mr-4 group-hover:bg-blue group-active:bg-blue bg-transparent" />
+      <div className="w-full flex items-center font-medium *:w-6 *:h-6 *:mr-2">{children}</div>
+      <div className={clsx({ hidden: noArrow })}>
+        <DownArrowIcon className="w-6 h-6 p-1 -rotate-90 flex-shrink-0" />
+      </div>
+    </Link>
+  );
+};
+
 export const Navbar = (): JSX.Element => {
   const [isCategoriesOpen, setIsCategoriesOpen] = useState<boolean>(false);
   const [transitioning, setTransitioning] = useState<boolean>(false);
@@ -319,81 +395,5 @@ export const Navbar = (): JSX.Element => {
         </div>
       </div>
     </>
-  );
-};
-
-const MainListItem = ({
-  isHovering,
-  children,
-  onMouseEnter,
-}: {
-  isHovering: boolean;
-  children: ReactNode;
-  onMouseEnter: MouseEventHandler<HTMLLIElement>;
-}): JSX.Element => (
-  <li className="flex mb-2 last:mb-0" onMouseEnter={onMouseEnter}>
-    <button
-      className={clsx(
-        "flex items-center h-12 l:h-10 w-full group cursor-pointer hover:text-blue active:text-blue",
-        isHovering ? "text-blue" : "text-midnight",
-      )}
-    >
-      {children}
-    </button>
-  </li>
-);
-
-const SubListItem = ({
-  hidden,
-  listItems,
-}: {
-  hidden: boolean;
-  listItems: { icon: ReactNode; name: string; link: string }[];
-}): JSX.Element => (
-  <ul className={clsx("overflow-y-auto", { hidden })}>
-    {listItems.map(
-      ({ icon, name, link }: { icon: ReactNode; name: string; link: string }, index: number): JSX.Element => (
-        <li key={`item-${index}`} className="flex mb-2 last:mb-0">
-          <Link
-            href={link}
-            className="flex items-center h-12 l:h-10 w-full text-midnight group cursor-pointer hover:text-blue active:text-blue"
-          >
-            <div className="w-full flex items-center font-medium *:w-6 *:h-6 *:mr-2">
-              {icon}
-              {name}
-            </div>
-          </Link>
-        </li>
-      ),
-    )}
-  </ul>
-);
-
-const SidebarItem = ({
-  href = "#",
-  noArrow = false,
-  onClick,
-  children,
-}: {
-  href?: string;
-  noArrow?: boolean;
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
-  children: ReactNode;
-}): JSX.Element => {
-  return (
-    <Link
-      href={href}
-      className={clsx(
-        "flex items-center h-12 l:h-10 w-full text-midnight group cursor-pointer hover:text-blue",
-        "active:text-blue",
-      )}
-      onClick={onClick}
-    >
-      <div className="w-1 h-full rounded flex-shrink-0 mr-4 group-hover:bg-blue group-active:bg-blue bg-transparent" />
-      <div className="w-full flex items-center font-medium *:w-6 *:h-6 *:mr-2">{children}</div>
-      <div className={clsx({ hidden: noArrow })}>
-        <DownArrowIcon className="w-6 h-6 p-1 -rotate-90 flex-shrink-0" />
-      </div>
-    </Link>
   );
 };

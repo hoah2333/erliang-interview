@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "tailwind-scrollbar";
+
 @theme {
   --font-sans: "Inter", sans-serif;
   --font-tisa-pro: "tisaPro", sans-serif;
@@ -56,6 +58,8 @@
   --color-lightest-grey: hsl(var(--neutral-lightest-grey) / 1);
   --color-light-pale-mint-grey: hsl(var(--neutral-light-pale-mint-grey) / 1);
   --color-light-grey: hsl(var(--neutral-light-grey) / 1);
+  --color-pale-mint-grey: hsl(var(--neutral-pale-mint-grey) / 1);
+  --color-grey: hsl(var(--neutral-mid-grey) / 1);
 
   --brand-green: 148 74% 53%;
   --brand-midnight: 202 92% 15%;
