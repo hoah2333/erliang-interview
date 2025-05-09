@@ -246,7 +246,7 @@ export const BookRecommend = (): JSX.Element => {
                           aria-label={isPlaying ? "Pause" : "Play"}
                           onClick={(): void => {
                             if (isPlaying) {
-                              audioRef.current?.pause()
+                              audioRef.current?.pause();
                             } else {
                               audioRef.current?.play();
                             }
