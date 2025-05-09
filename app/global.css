@@ -55,6 +55,8 @@
   --color-background-blue: hsl(var(--extended-blue-7) / 1);
   --color-background-yellow: hsl(var(--extended-summer-yellow-7) / 1);
   --color-background-purple: hsl(var(--extended-orchid-violet-7) / 1);
+  --color-background-red: hsl(var(--extended-raspberry-7) / 1);
+  --color-background-pale-mint-grey: hsl(var(--neutral-pale-mint-grey) / 1);
   --color-summer-yellow: hsl(var(--extended-summer-yellow-4) / 1);
   --color-lightest-grey: hsl(var(--neutral-lightest-grey) / 1);
   --color-light-pale-mint-grey: hsl(var(--neutral-light-pale-mint-grey) / 1);
@@ -62,6 +64,7 @@
   --color-pale-mint-grey: hsl(var(--neutral-pale-mint-grey) / 1);
   --color-grey: hsl(var(--neutral-mid-grey) / 1);
   --color-orchid-violet: hsl(var(--extended-orchid-violet-4) / 1);
+  --color-mid-grey: hsl(var(--neutral-mid-grey) / 1);
 
   --brand-green: 148 74% 53%;
   --brand-midnight: 202 92% 15%;

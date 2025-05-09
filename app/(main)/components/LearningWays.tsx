@@ -30,6 +30,10 @@ export const LearningWays = (): JSX.Element => {
         }
       }, 5000);
     }
+
+    return (): void => {
+      clearInterval(intervalRef.current);
+    };
   }, [currentPage]);
 
   const handleScrollToPrev = (): void => {

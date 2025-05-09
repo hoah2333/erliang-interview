@@ -2,10 +2,33 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-import { BookRecommend, HomeVideo, LearningWays } from "./components";
-import { DownloadIcon, SeedlingIcon, StarIcon } from "/Icons";
+import { BookRecommend, HomeVideo, LearningWays, Questions } from "./components";
+import { DownloadIcon, QuoteIcon, SeedlingIcon, StarIcon } from "/Icons";
 
 import type { JSX, ReactNode } from "react";
+
+const Button = ({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: ReactNode;
+}): JSX.Element => (
+  <Link
+    href={href}
+    className={clsx(
+      "cursor-pointer inline-flex whitespace-nowrap text-md font-medium ring-offset-white transition-colors",
+      "focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2",
+      "disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-green hover:bg-green-2 text-midnight",
+      "s:max-w-74 w-full items-center justify-center rounded-lg text-center",
+      className,
+    )}
+  >
+    {children}
+  </Link>
+);
 
 const Intro = (): JSX.Element => {
   const Animation = ({
@@ -258,28 +281,250 @@ const GetToKnow = (): JSX.Element => {
   );
 };
 
-const Button = ({
-  href,
-  className,
-  children,
-}: {
-  href: string;
-  className?: string;
-  children: ReactNode;
-}): JSX.Element => (
-  <Link
-    href={href}
-    className={clsx(
-      "cursor-pointer inline-flex whitespace-nowrap text-md font-medium ring-offset-white transition-colors",
-      "focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2",
-      "disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-green hover:bg-green-2 text-midnight",
-      "s:max-w-74 w-full items-center justify-center rounded-lg text-center",
-      className,
-    )}
-  >
-    {children}
-  </Link>
+const CustomerComments = (): JSX.Element => {
+  const CommentBlock = ({
+    image,
+    name,
+    color,
+    className,
+    children,
+  }: {
+    image: string;
+    name: string;
+    color: { bg: string; text: string };
+    className?: string;
+    children: ReactNode;
+  }): JSX.Element => (
+    <div className={clsx("flex flex-col gap-4 m:flex-row", className)}>
+      <div className="m:flex-col-reverse m:items-center m:justify-end m:gap-2 flex shrink-0 flex-row items-end gap-4">
+        <picture>
+          <source media="(min-width: 768px)" srcSet={image} width={160} height={196} />
+          <source srcSet={image} width={112} height={138} />
+          <Image src={image} width={112} height={138} alt="A Blinkist user" />
+        </picture>
+        <div>
+          <h3 className={clsx("-ml-8 rounded-lg px-2 py-1 text-center font-medium text-dark-grey m:ml-0", color.bg)}>
+            {name}
+          </h3>
+          <span className="m:hidden">
+            <QuoteIcon className={clsx("w-16", color.text)} />
+          </span>
+        </div>
+      </div>
+      <div>
+        <span className="m:block mb-5 hidden">
+          <QuoteIcon className={clsx("w-16", color.text)} />
+        </span>
+        <div className="mb-2 flex flex-row gap-1">
+          {Array.from({ length: 5 }).map(
+            (_: unknown, index: number): JSX.Element => (
+              <div key={`star-${index}`} className="text-summer-yellow">
+                <StarIcon className="w-4 h-4" bgColor="bg-summer-yellow" percent={100} />
+              </div>
+            ),
+          )}
+        </div>
+        <p className="font-tisa-pro text-p1">{children}</p>
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="m:gap-12 flex max-w-[80rem] flex-col items-center gap-8 m:px-8 mx-auto px-4">
+      <h3 className="text-h2 text-midnight m:text-h0 mx-auto max-w-3xl text-center font-bold">
+        Join 31+ million people growing with Blinkist
+        <button className="ml-2 inline-block align-text-top outline-hidden group">
+          <span className="text-base">ⓘ</span>
+          <div
+            className={clsx(
+              "absolute -translate-x-1/2 -bottom-10 opacity-0 transition-opacity group-hover:opacity-100",
+              "w-72 rounded-md border border-slate-200 bg-white p-4 text-slate-950 shadow-md outline-hidden",
+              "dark:border-slate-800 dark:bg-slate-950 dark:text-slate-50 max-w-sm text-sm",
+            )}
+          >
+            The following reviews are sourced from the Apple App Store or the Google Play Store, and as such Blinkist
+            has no possibility of its own to technically verify them. Both Apple and Google state that they ensure that
+            only users who have actually downloaded the app can submit a review. Please refer to the respective
+            guidelines of the two providers for more information.
+          </div>
+        </button>
+      </h3>
+      <div className="m:grid m:grid-cols-2 m:gap-16 l:grid-cols-3 flex flex-col gap-8">
+        <CommentBlock
+          image="https://static.blinkist.com/web-growth/homepage/social_upskillers.png"
+          name="Upskillers"
+          color={{ bg: "bg-background-red", text: "text-background-red" }}
+        >
+          Life changing. The concept of being able to{" "}
+          <span className="font-bold">grasp a book&#39;s main point in such a short time</span> truly opens multiple
+          opportunities to grow every area of your life at a faster rate.
+        </CommentBlock>
+        <CommentBlock
+          className="m:order-first m:mt-16"
+          image="https://static.blinkist.com/web-growth/homepage/social_leaders.png"
+          name="Leaders"
+          color={{ bg: "bg-background-blue", text: "text-background-blue" }}
+        >
+          Most CEOs read a book a week. Many use programs like this to acquire key concepts that{" "}
+          <span className="font-bold">
+            help them keep a fresh perspective helping hone vision, strategy and action.
+          </span>
+        </CommentBlock>
+        <CommentBlock
+          className="m:hidden l:mt-16 l:flex"
+          image="https://static.blinkist.com/web-growth/homepage/social_learners.png"
+          name="Lifelong learners"
+          color={{ bg: "bg-background-purple", text: "text-background-purple" }}
+        >
+          <span className="font-bold">This is simply the coolest app that exists.</span> Deserved full credit. It&#39;s
+          much nicer to spend your time learning new knowledge, rather than spending hours browsing social media.
+        </CommentBlock>
+      </div>
+      <div>
+        <div className="m:mb-8 m:grid-cols-3 mb-4 grid grid-cols-1 gap-8 text-center">
+          <div>
+            <span className="font-tisa-pro text-h1 text-midnight mb-2 font-bold">95%</span>
+            <p className="text-p0 text-dark-grey">of Blinkist members read significantly more than before*</p>
+          </div>
+          <div>
+            <span className="font-tisa-pro text-h1 text-midnight mb-2 font-bold">91%</span>
+            <p className="text-p0 text-dark-grey">of Blinkist members create better habits*</p>
+          </div>
+          <div>
+            <span className="font-tisa-pro text-h1 text-midnight mb-2 font-bold">87%</span>
+            <p className="text-p0 text-dark-grey">have made positive changes in their lives thanks to Blinkist*</p>
+          </div>
+        </div>
+        <p className="text-caption text-mid-grey text-center">
+          * Based on internal study using survey data from general Blinkist customers
+        </p>
+      </div>
+    </section>
+  );
+};
+
+const Brands = (): JSX.Element => (
+  <section className="bg-background-blue text-midnight flex flex-col py-12 m:px-12 px-4">
+    <h2 className="text-h5 mb-8 text-center font-bold">Trusted by the world&#39;s leading brands</h2>
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcSet="https://static.blinkist.com/web-growth/homepage/brands/brands-desktop.png"
+        width={1110}
+        height={29}
+      />
+      <source
+        srcSet="https://static.blinkist.com/web-growth/homepage/brands/brands-mobile.png"
+        width={335}
+        height={125}
+      />
+      <Image
+        src="https://static.blinkist.com/web-growth/homepage/brands/brands-mobile.png"
+        className="mx-auto"
+        width={335}
+        height={125}
+        alt="brands"
+      />
+    </picture>
+  </section>
 );
+
+const Places = (): JSX.Element => {
+  const Picture = ({
+    bgColor,
+    title,
+    image,
+    extra = false,
+    className,
+  }: {
+    bgColor: string;
+    title: string;
+    image: { desktop: string; mobile: string; alt: string };
+    extra?: boolean;
+    className?: string;
+  }): JSX.Element => (
+    <div className={clsx("flex max-w-none snap-start flex-col items-center", className)}>
+      <h3 className={clsx("text-p1 text-dark-grey z-20 -mb-4 rounded-lg px-2 py-1 font-medium", bgColor)}>{title}</h3>
+      <picture>
+        <source media="(min-width: 768px)" srcSet={image.desktop} width={277} height={343} />
+        <source srcSet={image.mobile} width={222} height={281} />
+        <Image src={image.mobile} className="max-w-none" width={222} height={281} alt={image.alt} />
+      </picture>
+      {extra && (
+        <picture className="pt-3">
+          <source media="(min-width: 768px)" width={185} height={90} />
+          <source
+            srcSet="https://static.blinkist.com/web-growth/homepage/use-cases/car-play.png"
+            width={185}
+            height={90}
+          />
+          <Image
+            className="max-w-none"
+            src="https://static.blinkist.com/web-growth/homepage/use-cases/car-play.png"
+            width={185}
+            height={90}
+            alt="logos"
+          />
+        </picture>
+      )}
+    </div>
+  );
+
+  return (
+    <section>
+      <div className="mx-4">
+        <h2 className="text-h2 text-midnight m:text-h0 mb-4 text-center font-bold">Grow wherever you are</h2>
+        <p className="text-p1 text-dark-grey m:text-p0 mx-auto mb-12 max-w-3xl text-center">
+          Forget carving out time. Slip in a little learning in the car, waiting in line, over lunch, before bed, or
+          whenever you&#39;ve got a moment.
+        </p>
+      </div>
+      <div className="overflow-hidden">
+        <div className="l:justify-center -mb-8 flex snap-x scroll-px-4 flex-row gap-6 overflow-auto px-4 pb-8">
+          <Picture
+            title="Driving"
+            bgColor="bg-background-red"
+            image={{
+              desktop: "https://static.blinkist.com/web-growth/homepage/use-cases/driving_desktop.png",
+              mobile: "https://static.blinkist.com/web-growth/homepage/use-cases/driving_mobile.png",
+              alt: "A person driving a car whilst listening to blinks on Blinkist",
+            }}
+            extra
+          />
+          <Picture
+            className="m:order-first m:mt-12"
+            title="Doing chores"
+            bgColor="bg-background-purple"
+            image={{
+              desktop: "https://static.blinkist.com/web-growth/homepage/use-cases/chores.png",
+              mobile: "https://static.blinkist.com/web-growth/homepage/use-cases/chores.png",
+              alt: "A person cleaning their kitchen whilst listening to blinks on Blinkist",
+            }}
+          />
+          <Picture
+            className="m:mt-12"
+            title="Commuting"
+            bgColor="bg-background-purple"
+            image={{
+              desktop: "https://static.blinkist.com/web-growth/homepage/use-cases/commuting_desktop.png",
+              mobile: "https://static.blinkist.com/web-growth/homepage/use-cases/commuting_mobile.png",
+              alt: "A person commuting whilst listening to blinks on Blinkist",
+            }}
+          />
+          <Picture
+            title="Training"
+            bgColor="bg-background-pale-mint-grey"
+            image={{
+              desktop: "https://static.blinkist.com/web-growth/homepage/use-cases/training.png",
+              mobile: "https://static.blinkist.com/web-growth/homepage/use-cases/training.png",
+              alt: "A person doing yoga whilst listening to blinks on Blinkist",
+            }}
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Page = (): JSX.Element => (
   <div className="m:mt-20 m:gap-20 mt-8 flex flex-col gap-16">
@@ -304,6 +549,10 @@ const Page = (): JSX.Element => (
       </p>
       <LearningWays />
     </section>
+    <CustomerComments />
+    <Brands />
+    <Places />
+    <Questions />
   </div>
 );
 
