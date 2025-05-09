@@ -48,7 +48,7 @@ export const BookRecommend = (): JSX.Element => {
   /* 由于这只是一个 demo，所以此处每页书籍都用同一本代替，每一个分类都是相同的书籍 */
   const books: { name: string; image: string; audio: string; color: string }[][] = Array.from(
     { length: bookCategories.length },
-    (_: unknown, index: number): { name: string; image: string; audio: string; color: string }[] => [
+    (): { name: string; image: string; audio: string; color: string }[] => [
       {
         name: "Stillness Is the Key",
         image: "https://images.blinkist.io/images/books/5d9054c96cee070008710ee8/1_1/1080.jpg",
@@ -245,7 +245,11 @@ export const BookRecommend = (): JSX.Element => {
                           className="hover:text-green text-white"
                           aria-label={isPlaying ? "Pause" : "Play"}
                           onClick={(): void => {
-                            isPlaying ? audioRef.current?.pause() : audioRef.current?.play();
+                            if (isPlaying) {
+                              audioRef.current?.pause()
+                            } else {
+                              audioRef.current?.play();
+                            }
                             setIsPlaying((isPlaying: boolean): boolean => !isPlaying);
                           }}
                         >

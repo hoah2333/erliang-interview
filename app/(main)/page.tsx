@@ -2,7 +2,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 
-import { BookRecommend, HomeVideo } from "./components";
+import { BookRecommend, HomeVideo, LearningWays } from "./components";
 import { DownloadIcon, SeedlingIcon, StarIcon } from "/Icons";
 
 import type { JSX, ReactNode } from "react";
@@ -296,6 +296,13 @@ const Page = (): JSX.Element => (
       <div className="flex justify-center px-4">
         <Button href="#">Get started</Button>
       </div>
+    </section>
+    <section>
+      <h2 className="text-h2 text-midnight m:mb-8 m:text-h0 mb-4 text-center font-bold">How will you level up?</h2>
+      <p className="text-p1 text-dark-grey m:mb-12 m:text-p0 mx-4 mb-8 text-center">
+        Listen, read, or get interactive—however you like to learn, you&#39;ll find it here!
+      </p>
+      <LearningWays />
     </section>
   </div>
 );

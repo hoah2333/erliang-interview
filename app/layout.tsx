@@ -32,7 +32,6 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1.0 };
 
-const inter = Inter({ subsets: ["latin"] });
 const tisaPro = localFont({
   src: [
     { path: "../public/fonts/Tisa-Sans-Pro-Regular.ttf", weight: "400" },
@@ -44,10 +43,11 @@ const tisaPro = localFont({
   preload: true,
   fallback: ["Consolas", "monospace"],
 });
+const inter = Inter({ subsets: ["latin"] });
 
 const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
   <html>
-    <body className={inter.className}>
+    <body className={tisaPro.className + inter.className}>
       <Navbar />
       {children}
     </body>

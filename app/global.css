@@ -52,6 +52,7 @@
   --color-green-2: hsl(var(--extended-green-2) / 1);
   --color-blue-2: hsl(var(--extended-blue-2) / 1);
   --color-blue-7: hsl(var(--extended-blue-7) / 1);
+  --color-background-blue: hsl(var(--extended-blue-7) / 1);
   --color-background-yellow: hsl(var(--extended-summer-yellow-7) / 1);
   --color-background-purple: hsl(var(--extended-orchid-violet-7) / 1);
   --color-summer-yellow: hsl(var(--extended-summer-yellow-4) / 1);
@@ -60,6 +61,7 @@
   --color-light-grey: hsl(var(--neutral-light-grey) / 1);
   --color-pale-mint-grey: hsl(var(--neutral-pale-mint-grey) / 1);
   --color-grey: hsl(var(--neutral-mid-grey) / 1);
+  --color-orchid-violet: hsl(var(--extended-orchid-violet-4) / 1);
 
   --brand-green: 148 74% 53%;
   --brand-midnight: 202 92% 15%;
